@@ -11,4 +11,5 @@ jobs:
     steps:
       # Runs a set of commands using the runners Shell (Running a Python Script)
       - name: Run playbook
+        working-directory: ./app
         run: ls -l
