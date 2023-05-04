@@ -8,9 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./app
     steps:
       # Runs a set of commands using the runners Shell (Running a Python Script)
       - name: Run playbook
