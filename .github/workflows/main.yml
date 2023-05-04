@@ -1,0 +1,14 @@
+name: API Contact - Build
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Runs a set of commands using the runners Shell (Running a Python Script)
+      - name: Run playbook
+        run: ls
