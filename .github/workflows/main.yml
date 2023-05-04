@@ -3,7 +3,7 @@ name: API Contact - Build
 on:
   push:
     branches: 
-      - master
+      - main
 
 jobs:
   deploy:
