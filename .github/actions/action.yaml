@@ -27,4 +27,6 @@ runs:
     - name: Run bootstrap script
       shell: bash
       run:  echo 'Hi ${{ inputs.mascot }}'
-            echo 'Hi ${{ inputs.mascotValueDefault }}'
+    - name: Run mascotValueDefault
+      shell: bash
+      run:  echo 'Hi ${{ inputs.mascotValueDefault }}'
