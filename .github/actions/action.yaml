@@ -17,6 +17,8 @@ runs:
   using: "composite"
   steps:
     - name: Run bootstrap script
+      shell: bash
       run:  echo 'Hi ${{ inputs.mascotDefault }}'
     - name: Run bootstrap script
+      shell: bash
       run:  echo 'Hi ${{ inputs.mascot }}'
