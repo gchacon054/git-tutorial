@@ -44,15 +44,6 @@ do
             fi
             ;;
         *)
-            if [[ "${1}" == --template_* ]];
-            then
-                extra_args="${extra_args} -${1#*template_} ${2}"
-                shift
-            else
-                echo "Unknown argument: ${1}"
-                exit 1
-            fi
-            ;;
     esac
     shift
 done
