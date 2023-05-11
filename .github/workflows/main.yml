@@ -24,4 +24,4 @@ jobs:
         uses: gchacon054/git-tutorial/.github/actions@main
         with:
           mascotDefault: "Default Mascot" 
-
+          mascot: ${vars.mascot}
