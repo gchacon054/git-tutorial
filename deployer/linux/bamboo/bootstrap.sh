@@ -22,4 +22,4 @@ do
     shift
 done
 
-echo "Checking out repository onto buildserver:"
+echo "Checking out repository onto buildserver: ${build_server}"
