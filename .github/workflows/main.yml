@@ -8,12 +8,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     
-    #strategy:
-     #   matrix:
-     #     environment: [ dev, test ]
+    strategy:
+        matrix:
+          environment: [ dev, test ]
           
-    #environment:  ${{ matrix.environment }}  
-    environment:  dev  
+    environment:  ${{ matrix.environment }}  
+    #environment:  dev  
     steps:
 
       # Checks-out the repository under $GITHUB-WORKSPACE 
