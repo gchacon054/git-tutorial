@@ -3,7 +3,7 @@ description: 'this runs the Upgrade script'
 
 inputs:
   # Required
-  mascotDefault:
+  mascotRequired:
     description: config_file
     required: true
 
