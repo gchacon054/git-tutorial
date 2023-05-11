@@ -1,0 +1,14 @@
+name: 'build-and-deploy'
+description: 'this runs the build script'
+
+inputs:
+  allow_future_db:
+    description: allow_future_db
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Run build script
+      shell: bash
+      run: ls
