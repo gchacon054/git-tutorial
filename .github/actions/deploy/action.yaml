@@ -23,10 +23,10 @@ runs:
   steps:
     - name: Run bootstrap script
       shell: bash
-      run:  echo 'Hi ${{ inputs.mascotDefault }}'
+      run:  echo 'Value Required ${{ inputs.mascotRequired }}'
     - name: Run bootstrap script
       shell: bash
-      run:  echo 'Hi ${{ inputs.mascot }}'
+      run:  echo 'Value Environments ${{ inputs.mascot }}'
     - name: Run mascotValueDefault
       shell: bash
-      run:  echo 'Hi ${{ inputs.mascotValueDefault }}'
+      run:  echo 'Value default ${{ inputs.mascotValueDefault }}'
