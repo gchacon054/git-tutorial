@@ -11,7 +11,13 @@ inputs:
   mascot:
     description: domain
     required: false
-
+    default: 'Chrome'
+   
+ mascotValueDefault:
+   description: domain
+   required: false
+   default: 'AICPCU'
+    
 runs:
   using: "composite"
   steps:
@@ -21,3 +27,4 @@ runs:
     - name: Run bootstrap script
       shell: bash
       run:  echo 'Hi ${{ inputs.mascot }}'
+            echo 'Hi ${{ inputs.mascotValueDefault }}'
