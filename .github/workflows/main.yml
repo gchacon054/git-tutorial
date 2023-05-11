@@ -23,6 +23,6 @@ jobs:
       - name: Echo the message
         uses: gchacon054/git-tutorial/.github/actions/deploy@main
         with:
-          #mascotRequired: "Mascot Required"    #Override all
-          mascot: ${{vars.mascot}}   #Will take values from environment.variables
+          mascotRequired: "Mascot Required"     #Override all
+          mascot: ${{vars.mascot}}              #Will take values from environment.variables
           #mascotValueDefault without value to take default from actions
