@@ -1,5 +1,4 @@
-name: API Contact - Build
-
+name: Test Variables
 on:
   push:
     branches: 
@@ -9,18 +8,23 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     
-    strategy:
-        matrix:
-          environment: [ dev, test ]
+    #strategy:
+     #   matrix:
+     #     environment: [ dev, test ]
           
-    environment:  ${{ matrix.environment }}  
+    #environment:  ${{ matrix.environment }}  
+    environment:  dev  
     steps:
 
       # Checks-out the repository under $GITHUB-WORKSPACE 
       - name: Checkout repo
         uses: actions/checkout@v3
-        
-      # Runs a set of commands using the runners Shell (Running a Python Script)
-      - name: Run playbook
+      - name: Obtiene directorios
         run: ls
-        #     echo 'Hi ${{ vars.mascot }}'  
+      # Runs a set of commands using the runners Shell (Running a Python Script)     
+      - name: Echo the message
+        uses: gchacon054/pokedex-for-ci/.github/actions/bootstrap@main
+        with:
+          mascot: "Test Mascot" 
+        #run: |
+        #  echo "Hola midu!  ${{ vars.mascot }}" 
