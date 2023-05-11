@@ -27,7 +27,10 @@ runs:
   steps:
     - name: Run bootstrap script
       shell: bash
-      run: ./deployer/linux/bamboo/bootstrap.sh --build_server "${{ inputs.mascot }}" --tunnel_via ${{ inputs.tunnel_via }}  
+      run: |
+           ./deployer/linux/bamboo/bootstrap.sh \
+           --build_server "${{ inputs.mascot }}" \
+           --tunnel_via ${{ inputs.tunnel_via }}  
   
  #   - name: Run bootstrap script
  #     shell: bash
