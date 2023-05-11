@@ -1,2 +1,22 @@
-name: 'run-bootstrap-script'
-description: 'this runs the bootstrap script'
+name: 'run-Upgrade-script'
+description: 'this runs the Upgrade script'
+
+inputs:
+  # Required
+  mascotDefault:
+    description: config_file
+    required: true
+
+  # Default
+  mascot:
+    description: domain
+    required: false
+    default: 'Default Mascot Bella' 
+
+runs:
+  using: "composite"
+  steps:
+    - name: Run bootstrap script
+      run:  echo 'Hi ${{ inputs.mascotDefault }}'
+    - name: Run bootstrap script
+      run:  echo 'Hi ${{ inputs.mascot }}'
