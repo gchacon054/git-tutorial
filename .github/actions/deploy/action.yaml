@@ -3,6 +3,10 @@ description: 'this runs the Upgrade script'
 
 inputs:
   # Required
+  build_server:
+    description: build_server
+    required: true
+    
   mascotRequired:
     description: config_file
     required: true
@@ -23,10 +27,17 @@ runs:
   steps:
     - name: Run bootstrap script
       shell: bash
-      run:  echo 'Value Required ${{ inputs.mascotRequired }}'
-    - name: Run bootstrap script
-      shell: bash
-      run:  echo 'Value Environments ${{ inputs.mascot }}'
-    - name: Run mascotValueDefault
-      shell: bash
-      run:  echo 'Value default ${{ inputs.mascotValueDefault }}'
+      run: |
+          ./deployer/linux/bamboo/bootstrap.sh
+            --build_server "${{ inputs.mascot }}" 
+            --tunnel_via ${{ inputs.tunnel_via }}  
+  
+ #   - name: Run bootstrap script
+ #     shell: bash
+ #     run:  echo 'Value Required ${{ inputs.mascotRequired }}'
+ #   - name: Run bootstrap script
+ #     shell: bash
+ #     run:  echo 'Value Environments ${{ inputs.mascot }}'
+ #   - name: Run mascotValueDefault
+ #     shell: bash
+ #     run:  echo 'Value default ${{ inputs.mascotValueDefault }}'
