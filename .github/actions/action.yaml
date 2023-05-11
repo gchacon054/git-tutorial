@@ -23,10 +23,13 @@ runs:
   steps:
     - name: Run bootstrap script
       shell: bash
-      run:  echo 'Hi ${{ inputs.mascotDefault }}'
-    - name: Run bootstrap script
-      shell: bash
-      run:  echo 'Hi ${{ inputs.mascot }}'
-    - name: Run mascotValueDefault
-      shell: bash
-      run:  echo 'Hi ${{ inputs.mascotValueDefault }}'
+      run:  echo 'Required Value ${{ inputs.mascotDefault }}'
+            echo 'Variable from workflow ${{ inputs.mascot }}'
+            echo 'Variable without value ${{ inputs.mascotValueDefault }}'
+      
+   # - name: Run bootstrap script
+   #   shell: bash
+   #   run:  echo 'Hi ${{ inputs.mascot }}'
+   # - name: Run mascotValueDefault
+   #   shell: bash
+   #   run:  echo 'Hi ${{ inputs.mascotValueDefault }}'
