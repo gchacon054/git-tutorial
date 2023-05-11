@@ -13,10 +13,10 @@ inputs:
     required: false
     default: 'Chrome'
    
- mascotValueDefault:
-   description: domain
-   required: false
-   default: 'AICPCU'
+  mascotValueDefault:
+    description: domain
+    required: false
+    default: 'AICPCU'
     
 runs:
   using: "composite"
