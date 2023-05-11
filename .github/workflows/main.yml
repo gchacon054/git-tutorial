@@ -23,15 +23,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
         
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.13.x
-          cache: npm
-
-      - name: Install
-        run: npm ci
-        
       # Runs a set of commands using the runners Shell (Running a Python Script)     
       - name: Echo the message
         uses: gchacon054/git-tutorial/.github/actions/deploy@main
