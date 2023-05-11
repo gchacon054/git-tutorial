@@ -23,7 +23,6 @@
 ################################################################################
 
 #source "$(dirname "${0}")/../utilities.sh"
-
 #preserve_script_log /var/log/deploy/build.log
 
 skip_git_pull=false
