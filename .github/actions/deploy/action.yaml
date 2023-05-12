@@ -87,7 +87,7 @@ runs:
            --git_ref "${{ env.GIT_BRANCH }}" \
            --installers_path "${{ inputs.installers_path }}" \
            --repository_root "${{ inputs.repository_root }}" \
-           --skip_git_pull ${{ inputs.skip_git_pull }} \
+           --skip_git_pull 'false' \
            --http_proxy ${{ inputs.http_proxy }} \
            --tunnel_via ' '
 
