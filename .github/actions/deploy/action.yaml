@@ -30,7 +30,6 @@ inputs:
   http_proxy:
     description: http_proxy
     required: true
-    default: ' '
     
   installers_path:
     description: installers_path
@@ -42,14 +41,11 @@ inputs:
 
   skip_git_pull:
     description: skip_git_pull
-    #type: boolean
     required: true
-    default: false
     
   tunnel_via:
     description: tunnel_via
-    required: true
-    
+    required: true   
     
   mascotRequired:
     description: config_file
