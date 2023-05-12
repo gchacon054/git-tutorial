@@ -83,8 +83,8 @@ runs:
            --git_remote "${{ inputs.git_remote }}" \
            --git_ref "${{ env.GIT_BRANCH }}" \
            --installers_path "${{ inputs.installers_path }}" \
-           --repository_root "${{ inputs.repository_root }}" \
-           --skip_git_pull "${{ inputs.skip_git_pull }}"
+           --repository_root "${{ inputs.repository_root }}" 
+           #--skip_git_pull "${{ inputs.skip_git_pull }}"
            
            #--tunnel_via "${{ inputs.tunnel_via }}" 
            
