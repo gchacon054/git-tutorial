@@ -89,7 +89,7 @@ runs:
            --repository_root "${{ inputs.repository_root }}" \
            --skip_git_pull ${{ inputs.skip_git_pull }} \
            --http_proxy ${{ inputs.http_proxy }} \
-           --tunnel_via ''
+           --tunnel_via ' '
 
                        
  #   - name: Run bootstrap script
