@@ -80,11 +80,11 @@ runs:
            --domain_password "${{ inputs.domain_password }}" \
            --full "${{ inputs.full }}" \
            --git_remote "${{ inputs.git_remote }}" \
-           --git_ref "${{ env.GIT_BRANCH }}" 
-
-          #--installers_path "${{ inputs.installers_path }}" \
-          # --repository_root "${{ inputs.repository_root }}" \
-           #--skip_git_pull "${{ inputs.skip_git_pull }}"
+           --git_ref "${{ env.GIT_BRANCH }}" \
+           --installers_path "${{ inputs.installers_path }}" \
+           --repository_root "${{ inputs.repository_root }}" \
+           --skip_git_pull "${{ inputs.skip_git_pull }}"
+           
            #--tunnel_via "${{ inputs.tunnel_via }}" 
            
         #   --http_proxy "${{ inputs.http_proxy }}"
