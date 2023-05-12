@@ -85,7 +85,8 @@ runs:
            --installers_path "${{ inputs.installers_path }}" \
            --repository_root "${{ inputs.repository_root }}" \
            --skip_git_pull false \
-           --http_proxy " "
+           --http_proxy " " \
+           --tunnel_via " "
            
            #--tunnel_via "${{ inputs.tunnel_via }}" 
            
