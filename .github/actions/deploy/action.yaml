@@ -42,7 +42,7 @@ inputs:
 
   skip_git_pull:
     description: skip_git_pull
-    type: boolean
+    #type: boolean
     required: true
     default: false
     
