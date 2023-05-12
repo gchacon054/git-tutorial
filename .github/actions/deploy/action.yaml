@@ -42,6 +42,7 @@ inputs:
   skip_git_pull:
     description: skip_git_pull
     required: true
+    default: 'false'
     
   tunnel_via:
     description: tunnel_via
@@ -83,7 +84,7 @@ runs:
            --git_ref "${{ env.GIT_BRANCH }}" \
            --installers_path "${{ inputs.installers_path }}" \
            --repository_root "${{ inputs.repository_root }}" 
-           #--skip_git_pull "${{ inputs.skip_git_pull }}"
+           --skip_git_pull "${{ inputs.skip_git_pull }}"
            
            #--tunnel_via "${{ inputs.tunnel_via }}" 
            
