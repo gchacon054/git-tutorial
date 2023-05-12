@@ -49,7 +49,7 @@ inputs:
   tunnel_via:
     description: tunnel_via
     required: true
-    default: ''
+    
     
   mascotRequired:
     description: config_file
