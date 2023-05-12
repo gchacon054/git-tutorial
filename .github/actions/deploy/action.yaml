@@ -77,7 +77,7 @@ runs:
            --build_server "${{ inputs.mascot }}" \
            --domain "${{ inputs.domain }}" \
            --domain_username "${{ inputs.domain_username }}" \
-           --domain_password "${{ inputs.domain_password }}" 
+           --domain_password "${{ inputs.domain_password }}" \
            --full "${{ inputs.full }}" \
            --git_remote "${{ inputs.git_remote }}" \
            --git_ref "${{ env.GIT_BRANCH }}" 
