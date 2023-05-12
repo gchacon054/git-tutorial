@@ -30,6 +30,7 @@ inputs:
   http_proxy:
     description: http_proxy
     required: true
+    default: ' '
     
   installers_path:
     description: installers_path
@@ -48,6 +49,7 @@ inputs:
   tunnel_via:
     description: tunnel_via
     required: true
+    default: ' '
     
   mascotRequired:
     description: config_file
@@ -86,13 +88,8 @@ runs:
            --installers_path "${{ inputs.installers_path }}" \
            --repository_root "${{ inputs.repository_root }}" \
            --skip_git_pull ${{ inputs.skip_git_pull }} \
-           --http_proxy " " \
-           --tunnel_via " "
-           
-           #--tunnel_via "${{ inputs.tunnel_via }}" 
-           
-        #   --http_proxy "${{ inputs.http_proxy }}"
-
+           --http_proxy ${{ inputs.http_proxy }} \
+           --tunnel_via ${{ inputs.tunnel_via }}
 
                        
  #   - name: Run bootstrap script
