@@ -6,6 +6,46 @@ inputs:
   build_server:
     description: build_server
     required: true
+
+  domain:
+    description: domain
+    required: true
+    
+  domain_password:
+    description: domain_password
+    required: true
+    
+  domain_username:
+    description: domain_username
+    required: true
+    
+  full:
+    description: full
+    required: true
+  
+  git_remote:
+    description: git_remote
+    required: true
+    
+  http_proxy:
+    description: http_proxy
+    required: true
+    
+  installers_path:
+    description: installers_path
+    required: true
+    
+  repository_root:
+    description: repository_root
+    required: true
+
+  skip_git_pull:
+    description: skip_git_pull
+    required: true
+    
+  tunnel_via:
+    description: tunnel_via
+    required: true
     
   mascotRequired:
     description: config_file
@@ -25,13 +65,28 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Get branch name
+      shell: bash
+      run: |
+        GIT_BRANCH=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
+        echo "GIT_BRANCH=$GIT_BRANCH" >> $GITHUB_ENV
     - name: Run bootstrap script
       shell: bash
       run: |
            ./deployer/linux/bamboo/bootstrap.sh \
            --build_server "${{ inputs.mascot }}" \
-           --tunnel_via ${{ inputs.tunnel_via }}  
-  
+           --domain "${{ inputs.domain }}" \
+           --domain_username "${{ inputs.domain_username }}" \
+           --domain_password "${{ inputs.domain_password }}" \
+           --full "${{ inputs.full }}" \
+           --git_remote "${{ inputs.git_remote }}" \
+           --git_ref "${{ env.GIT_BRANCH }}" \
+           --http_proxy "${{ inputs.http_proxy }}" \
+           --installers_path "${{ inputs.installers_path }}" \
+           --repository_root "${{ inputs.repository_root }}" \
+           --skip_git_pull "${{ inputs.skip_git_pull }}"
+           --tunnel_via "${{ inputs.tunnel_via }}" \
+                       
  #   - name: Run bootstrap script
  #     shell: bash
  #     run:  echo 'Value Required ${{ inputs.mascotRequired }}'
