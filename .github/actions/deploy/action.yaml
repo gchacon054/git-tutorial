@@ -42,7 +42,7 @@ inputs:
   skip_git_pull:
     description: skip_git_pull
     required: true
-    default: 'false'
+    default: false
     
   tunnel_via:
     description: tunnel_via
