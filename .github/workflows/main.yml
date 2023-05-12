@@ -30,3 +30,14 @@ jobs:
           mascotRequired: "Mascot Required"     #Override all
           mascot: ${{vars.mascot}}              #Will take values from environment.variables
           #mascotValueDefault without value to take default from actions
+          domain_password: "***"
+          build_server: ${{ vars.BUILD_SERVER }} 
+          domain: ${{ vars.DOMAIN }} 
+          domain_username: ${{ vars.DOMAIN_USERNAME }} 
+          full: ${{ vars.FULL }}
+          git_remote: ${{ vars.GIT_REMOTE }} 
+          http_proxy: ${{ vars.HTTP_PROXY }} 
+          installers_path: ${{ vars.INSTALLERS_PATH }} 
+          repository_root: ${{ vars.REPOSITORY_ROOT }}
+          skip_git_pull: ${{ vars.SKIP_GIT_PULL }} 
+          tunnel_via: ${{ vars.TUNNEL_VIA }} 
