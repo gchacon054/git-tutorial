@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v3
         
       # Runs a set of commands using the runners Shell (Running a Python Script)     
-      - name: Echo the message
+      - name: Run script in ${{ matrix.environment }}
         uses: gchacon054/git-tutorial/.github/actions/deploy@main
         with:
           mascotRequired: "Mascot Required"     #Override all
