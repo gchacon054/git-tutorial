@@ -1,0 +1,95 @@
+name: 'run-bootstrap-script'
+description: 'this runs the bootstrap script'
+
+inputs:
+  build_server:
+    description: build_server
+    required: true
+
+  domain:
+    description: domain
+    required: true
+    
+  domain_password:
+    description: domain_password
+    required: true
+    
+  domain_username:
+    description: domain_username
+    required: true
+    
+  full:
+    description: full
+    required: true
+  
+  git_remote:
+    description: git_remote
+    required: true
+    
+  http_proxy:
+    description: http_proxy
+    required: true
+    
+  installers_path:
+    description: installers_path
+    required: true
+    
+  repository_root:
+    description: repository_root
+    required: true
+
+  skip_git_pull:
+    description: skip_git_pull
+    required: true
+    
+  tunnel_via:
+    description: tunnel_via
+    required: true
+
+  gh_app_pem_file:
+    description: The path to the pem file for the GitHub App secret
+    required: true
+
+  gh_app_id:
+    description: The ID of the GitHub App
+    required: true
+
+  gh_app_installation_id:
+    description: The ID of the GitHub App Installation
+    required: true
+
+outputs:
+  access_token: 
+    description: The GitHub App Installation access token for server to server requests
+    value: ${{ steps.generate_token.outputs.access_token }}
+
+runs:
+  using: "composite"
+  steps:
+    # - name: Get branch name
+    #   shell: bash
+    #   run: |
+    #     GIT_BRANCH=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
+    #     echo "GIT_BRANCH=$GIT_BRANCH" >> $GITHUB_ENV
+    - name: Generate GitHub App Access Token
+      id: generate_token
+      shell: bash
+      run: |
+        access_token=$(./deployer/generate_gh_app_access_token.py ${{ inputs.gh_app_pem_file }} ${{ inputs.gh_app_id }} ${{ inputs.gh_app_installation_id }})
+        echo "$access_token" >> $GITHUB_OUTPUT
+      #  echo "::add-mask::$access_token"
+    - name: Run bootstrap script
+      shell: bash
+      run: |
+          ./deployer/linux/bamboo/bootstrap.sh \
+            --build_server ${{ inputs.build_server }} \
+            --domain ${{ inputs.domain }} \
+            --domain_username ${{ inputs.domain_username }} \
+            --domain_password ${{ inputs.domain_password }} \
+            --full ${{ inputs.full }} \
+            --git_remote ${{ inputs.git_remote }} \
+            --git_ref ${{ github.sha }} \
+            --installers_path ${{ inputs.installers_path }} \
+            --repository_root ${{ inputs.repository_root }} \
+            --skip_git_pull ${{ inputs.skip_git_pull }} \
+            --access_token ${{ steps.token.outputs.access_token }}
