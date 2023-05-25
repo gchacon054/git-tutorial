@@ -1,0 +1,57 @@
+name: Deploy
+on:
+  workflow_call:
+    inputs:
+      environment:
+        type: environment
+
+jobs:
+  deploy:
+    runs-on: [buildlinux]
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Run bootstrap script in prod
+        uses: aicpcu/root/.github/actions/bootstrap@develop
+        with: 
+          domain_password: ${{ secrets.DOMAIN_PASSWORD }}
+          build_server: ${{ vars.BUILD_SERVER }} 
+          domain: ${{ vars.DOMAIN }} 
+          domain_username: ${{ vars.DOMAIN_USERNAME }} 
+          full: ${{ vars.FULL }}
+          git_remote: ${{ vars.GIT_REMOTE }} 
+          http_proxy: ${{ vars.HTTP_PROXY }} 
+          installers_path: ${{ vars.INSTALLERS_PATH }} 
+          repository_root: ${{ vars.REPOSITORY_ROOT }}
+          skip_git_pull: ${{ vars.SKIP_GIT_PULL }} 
+          tunnel_via: ${{ vars.TUNNEL_VIA }} 
+          
+      - name: Run deploy script in prod
+        uses: aicpcu/root/.github/actions/deploy@develop
+        with:
+          allow_future_db: ${{ vars.ALLOW_FUTURE_DB }} 
+          build_server: ${{ vars.BUILD_SERVER }} 
+          config_file: ${{ vars.CONFIG_FILE }} 
+          deployl712: ${{ vars.DEPLOYL712 }} 
+          domain: ${{ vars.DOMAIN }} 
+          domain_username: ${{ vars.DOMAIN_USERNAME }} 
+          full: ${{ vars.FULL }} 
+          http_proxy: ${{ vars.HTTP_PROXY }} 
+          ntp_proxy: ${{ vars.NTP_PROXY }} 
+          repository_root: ${{ vars.REPOSITORY_ROOT }}
+          simulate: ${{ vars.SIMULATE }} 
+          skip_drush: ${{ vars.SKIP_DRUSH }} 
+          skip_gatekeeper_migrations: ${{ vars.SKIP_GATEKEEPER_MIGRATIONS }} 
+          skip_git_pull: ${{ vars.SKIP_GIT_PULL }} 
+          skip_provision: ${{ vars.SKIP_PROVISION }} 
+          skip_qb_db: ${{ vars.SKIP_QB_DB }} 
+          skip_qb_forms: ${{ vars.SKIP_QB_FORMS }} 
+          skip_qb_migrations: ${{ vars.SKIP_QB_MIGRATIONS }} 
+          skip_scripts_and_fill_cache: ${{ vars.SKIP_SCRIPTS_AND_FILL_CACHE }} 
+          skip_scripts_and_fill_cache_qb: ${{ vars.SKIP_SCRIPTS_AND_FILL_CACHE_QB }} 
+          skip_simms_db: ${{ vars.SKIP_SIMMS_DB }} 
+          skip_simms_forms: ${{ vars.SKIP_SIMMS_FORMS }} 
+          skip_simms_migrations: ${{ vars.SKIP_SIMMS_MIGRATIONS }} 
+          tunnel_via: ${{ vars.TUNNEL_VIA }} 
